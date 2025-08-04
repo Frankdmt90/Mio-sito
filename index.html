@@ -1,72 +1,84 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frankdmt90.com</title>
-    <link rel="stylesheet" href="stile.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  </head>
-  <body>
-
-    <header class="site-header">
-      <h1>Frankdmt90.com</h1>
-      <p>Benvenuto nel mio angolo digitale 🎧</p>
-      <button id="toggle-dark">🌓 Tema</button>
-    </header>
-
-    <main>
-
-      <section class="card-container reveal">
-        <div class="card">
-          <img src="https://m.economictimes.com/thumb/msid-96710895,width-1200,height-900,resizemode-4,imgsize-38032/blackpink-jisoo.jpg" alt="Musica">
-          <h3>Musica</h3>
-          <p>Adoro ascoltare K-pop, soprattutto le BlackPink. Jisoo è stupenda.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://www.giovannicarrieri.com/photography/italy/bari-2020/nazario-sauro-lungomare-di-bari.jpg" alt="Camminate">
-          <h3>Camminate</h3>
-          <p>Camminare per Bari con la musica nelle orecchie è una delle mie passioni.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://www.tuttotech.net/wp-content/uploads/2019/06/DARK-serie-TV-Netflix.jpg" alt="Serie TV">
-          <h3>Serie TV</h3>
-          <p>Dark è la mia serie preferita. Viaggi nel tempo, mistero e tensione!</p>
-        </div>
-      </section>
-
-      <section class="social reveal">
-        <h2>Seguimi anche qui 👇</h2>
-        <div class="social-links">
-          <a href="https://instagram.com/iltuoaccount" target="_blank">Instagram</a>
-          <a href="https://youtube.com/iltuocanale" target="_blank">YouTube</a>
-          <a href="https://twitter.com/iltuoprofilo" target="_blank">Twitter</a>
-        </div>
-      </section>
-
-    </main>
-
-    <script>
-      // Scroll reveal effect
-      const reveals = document.querySelectorAll('.reveal');
-      window.addEventListener('scroll', () => {
-        for (let i = 0; i < reveals.length; i++) {
-          const windowHeight = window.innerHeight;
-          const elementTop = reveals[i].getBoundingClientRect().top;
-          if (elementTop < windowHeight - 100) {
-            reveals[i].classList.add('visible');
-          }
-        }
-      });
-
-      // Dark mode toggle
-      const toggleBtn = document.getElementById('toggle-dark');
-      toggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-      });
-    </script>
-
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sito Minimal</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #eee;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      text-align: center;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 2rem 1rem;
+    }
+    h1 {
+      font-weight: 300;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    p {
+      font-weight: 200;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: #bbb;
+    }
+    footer {
+      padding: 1rem;
+      background-color: #111;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .social {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+    }
+    .social a {
+      color: #eee;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .social a:hover {
+      color: #1da1f2; /* Twitter blue as example */
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .social {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Ciao, benvenuto!</h1>
+    <p>Questo è un sito creato da frankdmt90.</p>
+    <div class="social">
+      <a href="https://www.instagram.com/frankdmt90/" target="_blank" aria-label="Instagram">📸</a>
+      <a href="https://github.com/Frankdmt90" target="_blank" aria-label="GitHub">🐙</a>
+      
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Frankdmt90. Tutti i diritti riservati.
+  </footer>
+</body>
 </html>
