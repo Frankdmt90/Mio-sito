@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+  color: #222;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.site-header {
+  background-color: #f0f0f0;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+#toggle-dark {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ccc;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.social {
+  text-align: center;
+  padding: 2rem;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: #222;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.social-links a:hover {
+  background-color: #555;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #111;
+  color: #eee;
+}
+
+body.dark-mode .site-header {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .card {
+  background-color: #222;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .social-links a {
+  background-color: #eee;
+  color: #111;
+}
+
+/* Reveal effect */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  border-top: 1px solid #ccc;
+}
+
+body.dark-mode .footer {
+  background-color: #1a1a1a;
+  color: #eee;
+  border-top: 1px solid #444;
+}
