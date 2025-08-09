@@ -5,84 +5,178 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>frankdmt90's site</title>
   <style>
+    /* Reset e base */
     body {
       margin: 0;
       background-color: #000;
       color: #eee;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      text-align: center;
+      scroll-behavior: smooth;
     }
-    main {
-      flex: 1;
+
+    /* MENU */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #111;
       display: flex;
       justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 2rem 1rem;
+      padding: 0.75rem 0;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
     }
-    h1 {
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-weight: 300;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #e1306c; /* colore accento */
+      outline: none;
+    }
+
+    /* Sezioni */
+    section {
+      min-height: 100vh;
+      padding: 6rem 1rem 2rem; /* top più spazio per menu fisso */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    /* Home */
+    #home h1 {
       font-weight: 300;
       font-size: 2.5rem;
       margin: 0;
     }
-    p {
+    #home p {
       font-weight: 200;
       font-size: 1.2rem;
       margin-top: 0.5rem;
       color: #bbb;
     }
-    footer {
-      padding: 1rem;
-      background-color: #111;
-      font-size: 0.9rem;
-      color: #555;
-    }
+
+    /* Social */
     .social {
       margin-top: 1rem;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
     .social a {
       color: #eee;
       margin: 0 0.5rem;
       text-decoration: none;
-      transition: color 0.3s;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
     .social a:hover {
-      color: #1da1f2; /* Twitter blue as example */
+      transform: scale(1.2);
     }
+    /* Colori specifici all'hover */
+    .social a[aria-label="Instagram"]:hover { color: #e1306c; }
+    .social a[aria-label="GitHub"]:hover { color: #ccc; }
+
+    /* Chi Sono */
+    #chi-sono h2,
+    #contatti h2 {
+      font-weight: 300;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #eee;
+    }
+    #chi-sono p,
+    #contatti p {
+      max-width: 600px;
+      font-weight: 200;
+      font-size: 1.1rem;
+      color: #bbb;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      padding: 1rem;
+      background-color: #111;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+      border-top: 1px solid #222;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-      .social {
-        font-size: 1.3rem;
-      }
+      #home h1 { font-size: 2rem; }
+      #home p { font-size: 1rem; }
+      .social { font-size: 1.5rem; }
+      nav a { margin: 0 1rem; font-size: 0.9rem; }
+      #chi-sono p, #contatti p { font-size: 1rem; max-width: 90vw; }
     }
   </style>
 </head>
 <body>
-  <main>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#chi-sono">Chi Sono</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+
+  <section id="home">
     <h1>Ciao, benvenuto!</h1>
     <p>Questo è un sito creato da frankdmt90.</p>
+
     <div class="social">
       <a href="https://www.instagram.com/frankdmt90/" target="_blank" aria-label="Instagram">📸</a>
       <a href="https://github.com/Frankdmt90" target="_blank" aria-label="GitHub">🐙</a>
-      
     </div>
-  </main>
+  </section>
+
+  <section id="chi-sono">
+    <h2>Chi Sono</h2>
+    <p>
+      Ciao! Sono Frank, un appassionato di tecnologia che ama fare esperimenti,cerca di imparare a programmare utilizzando turioral e anche l'Ai.
+    </p>
+  </section>
+
+  <section id="contatti">
+    <h2>Contatti</h2>
+    <p>
+      Puoi contattarmi via Instagram o GitHub tramite i link nella sezione Home oppure scrivermi su telegram @frankdmt90.
+    </p>
+  </section>
+
   <footer>
-  <p>© 2025 Frank</p>
-  <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=a05827c2a011edcd5d327dd51bb38db826bfa747'></script>
-<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1374448/t/3"></script>
+    Creato con ❤️ da Frankdmt90 – &copy; 2025
+  </footer>
+
+  <script>
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - document.querySelector('nav').offsetHeight,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
-
-
-
